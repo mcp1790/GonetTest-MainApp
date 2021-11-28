@@ -1,0 +1,8 @@
+{
+    "version": "1.1.0",
+    "urls": [
+        "https://api.themoviedb.org/3/"
+    ],
+    "time_out_interval": 45,
+    "enable_logs": false
+}

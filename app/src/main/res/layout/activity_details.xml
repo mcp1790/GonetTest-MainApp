@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:ignore="SpUsage"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView_backdrop_details"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_150sdp"
+                android:scaleType="centerCrop"
+                tools:src="@mipmap/ic_launcher"
+                app:layout_collapseMode="parallax"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView_poster_details"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_15sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView_backdrop_details"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_backdrop_details"
+                app:shapeAppearanceOverlay="@style/CircleShape">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView_poster_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_1sdp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:textSize="@dimen/_17sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView_poster_details"
+                tools:text="Nombre de la pelicula" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_title"
+                tools:text="Año" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_classification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_year"
+                app:layout_constraintStart_toEndOf="@+id/textView_year"
+                app:layout_constraintTop_toTopOf="@+id/textView_year"
+                tools:text="Clasificación" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_classification"
+                app:layout_constraintStart_toEndOf="@+id/textView_classification"
+                app:layout_constraintTop_toTopOf="@+id/textView_classification"
+                tools:text="Duracion" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_genres"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:footerDividersEnabled="false"
+                android:layerType="hardware"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView_year"
+                app:layout_constraintTop_toBottomOf="@id/textView_duration"
+                tools:listitem="@layout/item_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView_genres"
+                tools:text="Nombre de la pelicula" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_recommended_movies"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView_description"
+                app:layout_constraintTop_toBottomOf="@+id/textView_description"
+                app:layout_constraintVertical_bias="0"
+                tools:itemCount="1"
+                tools:listitem="@layout/generic_item_recycler_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
